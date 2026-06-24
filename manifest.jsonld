@@ -1,0 +1,156 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://etzhayyim.com/ns/actor-manifest"
+  ],
+  "@type": "ActorManifest",
+  "id": "did:web:kurashimori.etzhayyim.com",
+  "name": "kurashimori",
+  "displayName": "暮らし守 — Citizen Consumer-Protection Concierge",
+  "displayNameJa": "暮らし守",
+  "displayNameEn": "Kurashimori",
+  "description": "kotoba-native citizen consumer-protection self-help concierge — the 国民生活センター / 消費生活センター-equivalent, citizen↔MERCHANT sibling of toritsugi (citizen↔government) and moushibumi (citizen→state). 暮らし守 = guardian of everyday life. Three member-initiated, consent-bound self-help channels: (1) クーリングオフ (detect statutory cooling-off window per 特定商取引法 — 訪問販売 8日 / 連鎖販売 20日, assist drafting the 通知, member sends); (2) 返金/苦情 (assist drafting a refund demand / complaint to the merchant, track response); (3) エスカレーション (stalled self-help → route to 消費生活センター / 消費者ホットライン 188 / ADR / chigiri + licensed counsel). Default = 診断 + 起草補助 + 本人送付; 代行 (本人同意ベース) is the gated R3 exception. Driven by a CODED remedyTarget registry (remedy kind / 根拠法令 / statutory window 日数 / 様式 / channel / escalation forum). Consent + own-matter-only (G3), transparent (G4), UPL/司法書士法/弁護士法-bounded (G5, no advice + no representation + no rights-determination; cooling-off output is date-computation not a legal opinion → chigiri + licensed), PII-encrypted (G6), Murakumo-only (G7), non-fabrication (G8), no claims-buying/no contingency/no 取立 (G9), lawful + non-harassment (G10), Transparent Religious Force (G11), data-minimization (G12), verified-remedy-only send (G14), member-self-action default (G15). JP-first (R0); architecture jurisdiction-generic. 7 cells / 7 Lexicons / 15 gates / 13 non-goals.",
+  "descriptionJa": "kotoba-native の市民 消費者保護 自助コンシェルジュ — 国民生活センター/消費生活センター 相当、市民↔事業者 の sibling (toritsugi=市民↔行政、moushibumi=市民→国家)。暮らし守 = 暮らしの守り手。3つの member-initiated・同意必須の自助チャネル:(1) クーリングオフ (特定商取引法の法定期間を診断 — 訪問販売8日/連鎖販売20日、通知書の起草補助、本人送付);(2) 返金/苦情 (事業者への返金要求/苦情の起草補助、応答追跡);(3) エスカレーション (自助停滞 → 消費生活センター/消費者ホットライン188/ADR/chigiri+有資格者へ routing)。既定 = 診断 + 起草補助 + 本人送付; 代行 (本人同意ベース) は gated R3 例外。remedy kind / 根拠法令 / 法定期間(日数)/ 様式 / channel / escalation forum を コード化した remedyTarget registry が駆動。同意・本人事案限定 (G3)、透明 (G4)、UPL/司法書士法/弁護士法 境界 (G5、助言なし+代理なし+権利判断なし; クーリングオフ判定は日数計算であり法的意見ではない → chigiri+有資格者)、PII 暗号化 (G6)、Murakumo-only (G7)、捏造禁止 (G8)、債権買取/成功報酬/取立 禁止 (G9)、適法+非威迫 (G10)、Transparent Religious Force (G11)、データ最小化 (G12)、検証済 remedy のみ送付 (G14)、本人送付 default (G15)。日本先行 (R0); architecture は jurisdiction 汎用。7 cells / 7 Lexicons / 15 gates / 13 non-goals。",
+  "adr": {
+    "master": "etzhayyim:adr:2605312500",
+    "parent": "etzhayyim:adr:2605312030",
+    "r0": "etzhayyim:adr:2605312500",
+    "r1": "reserved",
+    "r2": "reserved",
+    "r3": "reserved"
+  },
+  "tier": "Tier-B",
+  "parentActor": null,
+  "posture": "SERVICE-DELIVERY to the citizen — consumer self-help vs merchants (default = diagnose + draft-assist + member-self-send; 代行 active-outbound is the narrowly-gated R3 exception). No advice / no representation / no claims-buying / non-harassment.",
+  "crossActorBoundary": [
+    "did:web:chigiri.etzhayyim.com (BOUNDARY: chigiri = legal characterization + 作成代理 + representation + ADR/dispute procedure [UPL]; kurashimori = consumer self-help diagnosis + drafting-assist + (gated) send + escalation. kurashimori pulls templates + escalates to chigiri; renders no advice; ADR-2605262700)",
+    "did:web:himotoki.etzhayyim.com (SIBLING active-outbound: himotoki files 開示請求 [data OUT]; kurashimori files 苦情/通知 [consumer remedy]. Shared dispatch discipline (consent + own-only + transparent-non-pretext + lawful-channel-only + verified-target-only), disjoint purpose; ADR-2605302130)",
+    "did:web:toritsugi.etzhayyim.com (SIBLING citizen-facing concierge: toritsugi = government procedures; same coded-registry + G15 self-action pattern; ADR-2605312030)",
+    "did:web:moushibumi.etzhayyim.com (SIBLING citizen-facing concierge: moushibumi = democratic participation; same pattern; ADR-2605312400)",
+    "did:web:wakai.etzhayyim.com (mutual-aid pool [NOT insurance] may be the member's relief path for irrecoverable consumer loss — kurashimori routes, wakai absorbs under its own gates; ADR-2605263500)",
+    "did:web:warifu.etzhayyim.com (a disputed card charge may have a warifu-side chargeback/refund path; kurashimori coordinates the consumer-side demand; ADR-2605302000)",
+    "com.etzhayyim.encrypted.* (member PII + contract/complaint content land ONLY here — XChaCha20-Poly1305 DID-bound envelope; G6, ADR-2605181100)",
+    "kotoba QuadStore EAVT (remedy catalog + session/draft/dispatch lifecycle datoms; ADR-2605262130; no RisingWave / no projection layer)"
+  ],
+  "form": "任意団体 internal member-service substrate (NOT 一般社団 / NPO / 公益財団 / 宗教法人 法人格 — Preamble §0.4 Lv7+ unanimity lock; NOT a 弁護士/司法書士 firm — UPL boundary G5; NOT a 適格消費者団体 / claims-collection business — G9; NOT an official 消費生活センター — unofficial assistant G4)",
+  "constitutionalDiscipline": {
+    "consentGatedOwnMatterOnly": "G3 — every complaint/cooling-off is member-initiated with consent + Adherent-SBT/DID binding and concerns the member's OWN consumer matter; never a non-consenting person; never a third party's matter.",
+    "transparentNonPretext": "G4 — the member is the named complainant; no impersonation; kurashimori identifies itself as an UNOFFICIAL assistant, never as 消費生活センター or a public body.",
+    "uplBoundary": "G5 (CRITICAL) — self-help diagnosis + drafting-assist + 案内 only; NO legal advice, NO representation (代理), NO legal determination of rights; characterization + representation → chigiri + licensed counsel; the cooling-off eligibility output is an informational date computation, explicitly NOT a legal opinion (isLegalOpinion const false).",
+    "piiConfidentiality": "G6 — member PII + contract/complaint content land ONLY in com.etzhayyim.encrypted.* DID-bound envelopes (ADR-2605181100); never plaintext on MST.",
+    "murakumoOnlyInference": "G7 — Murakumo-only inference per ADR-2605215000; no vendor LLM API callout.",
+    "nonFabrication": "G8 — never invent a 根拠法令 / 日数 / 様式; every remedy cites 根拠法令 + provenance; the member confirms before any send. A wrong cooling-off 日数 is harmful.",
+    "noCommercializationNoClaimsBuying": "G9 — non-profit; no contingency fee; no purchase/assignment of the member's claim; no debt/claims-collection (取立) business; no resale of complaint data (Charter Rider §2(e)).",
+    "lawfulChannelNonHarassment": "G10 — the only external action is a lawful, proportionate communication to the merchant through a legitimate channel with member authorization; never threats / harassment / 威迫.",
+    "transparentForce": "G11 — assist + send + track + escalate only; no coercion / extra-legal pressure; escalation via lawful public fora (ADR-2605192100 §1.12).",
+    "scopeMinimization": "G12 — collect only what the specific matter requires.",
+    "stateAlignedFlagPassthrough": "G13 — stateAlignedFlag pass-through into derived records.",
+    "verifiedRemedyOnlySend": "G14 — kurashimori_send refuses any remedy whose verificationStatus is unverified-seed or whose lastVerified is stale (statutory windows drift; a wrong 日数 is harmful).",
+    "memberSelfActionDefault": "G15 — the member sends/withdraws by default; 代行 active-outbound (kurashimori_send) is the GATED exception (R3), requiring per-submission consent + 司法書士法/行政書士法 clearance + Council Lv7+."
+  },
+  "scope": {
+    "phase": "R0 scaffold",
+    "scopeBoundary": "Citizen consumer-protection self-help concierge across 3 channels — クーリングオフ, 返金/苦情, エスカレーション — driven by a coded remedyTarget registry. 診断+起草補助+本人送付 is the floor; 代行 is the gated R3 ceiling. JP-first; jurisdiction-generic.",
+    "exclusions": [
+      "弁護士 / 司法書士 firm or representative advocate (drafting-assist only; representation → chigiri + licensed)",
+      "claims-collection / debt-collection / 取立 business",
+      "contingency-fee or claims-buying operation",
+      "適格消費者団体 substitute (no group/class representation)",
+      "harassment / 威迫 / pressure tool against merchants",
+      "replacement for the member's own right (assists, does not supplant)",
+      "merchant-blacklist / review-bombing / reputation-attack system",
+      "data-broker of complaint or contract data",
+      "pretext / impersonation tool",
+      "official 消費生活センター (unofficial assistant)",
+      "plaintext-PII store",
+      "Japan-exclusive architecture (jurisdiction-generic)",
+      "legal-opinion / rights-determination engine (informational date-computation only)"
+    ]
+  },
+  "codedTargetRegistry": {
+    "description": "Each consumer remedy/route encoded as com.etzhayyim.kurashimori.remedyTarget records (remedy kind / 根拠法令 / statutory window 日数 / 様式 / channel / escalation forum) so a cell can diagnose + (eventually) send procedurally. Seed at registry/targets.seed.json.",
+    "seedFile": "/20-actors/kurashimori/registry/targets.seed.json",
+    "seedTargets": ["訪問販売 クーリングオフ", "連鎖販売 クーリングオフ", "通信販売 返品特約", "消費生活センター/188", "適格消費者団体/ADR"],
+    "verificationGate": "G14 — all seed entries ship verificationStatus=unverified-seed; NO live send until maintainer-verified / council-verified (代行) within freshnessWindowDays. Statutory windows (日数) MUST be re-verified — a wrong 日数 is harmful."
+  },
+  "cells": [
+    {"name": "remedy_registry", "module": "kotodama.cells.kurashimori_remedy_registry", "murakumoNode": "reuben", "phase": "continuous", "io": "maintain + resolve the coded remedyTarget catalog; enforce G14"},
+    {"name": "intake", "module": "kotodama.cells.kurashimori_intake", "murakumoNode": "reuben", "phase": "event", "io": "member consent + DID/SBT + the consumer matter (OWN) → complaintSession"},
+    {"name": "cooloff_check", "module": "kotodama.cells.kurashimori_cooloff_check", "murakumoNode": "reuben", "phase": "event", "io": "contract date + type → coolingOffAssessment (INFORMATIONAL date computation, NOT legal advice — G5)"},
+    {"name": "compose", "module": "kotodama.cells.kurashimori_compose", "murakumoNode": "gad", "phase": "event", "io": "pull chigiri template + resolved remedy → remedyDraft (drafting-assist, G5)"},
+    {"name": "send", "module": "kotodama.cells.kurashimori_send", "murakumoNode": "naphtali", "phase": "event", "io": "THE ONLY active-outbound cell — default hands the draft back for member self-send; 代行 ONLY under G14+G15+R3 → dispatchRecord"},
+    {"name": "status_track", "module": "kotodama.cells.kurashimori_status_track", "murakumoNode": "naphtali", "phase": "continuous", "io": "merchant response / refund / window-expiry clock; stall → escalation route"},
+    {"name": "escalation", "module": "kotodama.cells.kurashimori_escalation", "murakumoNode": "gad", "phase": "event", "io": "self-help stalled → route to 消費生活センター / ADR / chigiri+counsel → escalationReferral"}
+  ],
+  "lexiconNamespaces": [
+    "com.etzhayyim.kurashimori.remedyTarget",
+    "com.etzhayyim.kurashimori.complaintSession",
+    "com.etzhayyim.kurashimori.coolingOffAssessment",
+    "com.etzhayyim.kurashimori.remedyDraft",
+    "com.etzhayyim.kurashimori.dispatchRecord",
+    "com.etzhayyim.kurashimori.statusTrack",
+    "com.etzhayyim.kurashimori.escalationReferral"
+  ],
+  "constitutionalGates": {
+    "description": "15 immutable gates per ADR-2605312500 §4. Council Lv6+ supermajority + new ADR to amend.",
+    "gates": {
+      "G1": "Charter Rider §2(a)-(h) scan on every authored artifact + outbound action",
+      "G2": "kotoba attestation lineage on every record (EAVT; no RW)",
+      "G3": "Consent-gated + own-matter-only — member-initiated, consent + Adherent-SBT/DID bound; never a non-consenting person; never a third party's matter",
+      "G4": "Transparent + non-pretextual — member is the named complainant; no impersonation; never poses as 消費生活センター / a public body",
+      "G5": "UPL / 司法書士法 / 弁護士法 boundary (CRITICAL) — self-help diagnosis + drafting-assist + 案内; NO legal advice / NO representation (代理) / NO rights-determination → chigiri + licensed; cooling-off output is date-computation, not a legal opinion",
+      "G6": "PII confidentiality — member PII + contract/complaint content ONLY in com.etzhayyim.encrypted.* DID-bound envelopes (ADR-2605181100); never plaintext",
+      "G7": "Murakumo-only inference (ADR-2605215000)",
+      "G8": "Non-fabrication — never invent 根拠法令/日数/様式; cite 根拠法令 + provenance; member confirms before send (a wrong cooling-off 日数 is harmful)",
+      "G9": "No commercialization / no claims-buying — non-profit; no contingency fee; no purchase/assignment of the claim; no debt/claims-collection (取立); no resale of complaint data",
+      "G10": "Lawful-channel-only + non-harassment — only external action is a lawful, proportionate communication via a legitimate channel with member authorization; never threats / 威迫",
+      "G11": "Transparent Religious Force discipline (§1.12) — assist + send + track + escalate only; no coercion; escalation via lawful public fora",
+      "G12": "Scope / data-minimization — collect only what the matter requires",
+      "G13": "stateAlignedFlag pass-through into derived records",
+      "G14": "Verified-remedy-only send — kurashimori_send refuses unverified-seed / stale remedies (statutory windows drift)",
+      "G15": "Member-self-action default — the member sends/withdraws by default; 代行 active-outbound is the gated R3 exception (per-submission consent + 司法書士法/行政書士法 clearance + Council Lv7+)"
+    }
+  },
+  "nonGoals": {
+    "description": "13 explicitly excluded scopes",
+    "goals": {
+      "N1": "NOT a 弁護士/司法書士 firm or representative advocate (drafting-assist only; representation → chigiri + licensed)",
+      "N2": "NOT a claims-collection / debt-collection / 取立 business",
+      "N3": "NOT a contingency-fee or claims-buying operation",
+      "N4": "NOT a 適格消費者団体 substitute (no group/class representation)",
+      "N5": "NOT a harassment / 威迫 / pressure tool against merchants",
+      "N6": "NOT a replacement for the member's own right (assists, does not supplant)",
+      "N7": "NOT a merchant-blacklist / review-bombing / reputation-attack system",
+      "N8": "NOT a data-broker of complaint or contract data",
+      "N9": "NOT a pretext / impersonation tool",
+      "N10": "NOT an official 消費生活センター (unofficial assistant)",
+      "N11": "NOT a plaintext-PII store",
+      "N12": "NOT Japan-exclusive in architecture (JP-first at R0; jurisdiction-generic)",
+      "N13": "NOT a legal-opinion / rights-determination engine (informational date-computation only)"
+    }
+  },
+  "roadmap": [
+    {"phase": "R0", "date": "2026-05-31", "scope": "Scaffold only. 7 cells path-reserved. 7 Lexicon skeletons. Remedy-registry seed (5 entries, all unverified-seed). manifest + README + CLAUDE.md. NO send, NO live diagnosis.", "murakumoFleet": "No deployment", "gate": "ADR-2605312500 (PROPOSED)"},
+    {"phase": "R1", "date": "post-Bootstrap-Council + ≥1 Council Lv6+ ratify", "scope": "remedy_registry + intake + cooloff_check + compose build artifacts; 診断 + 起草補助 only, no send.", "murakumoFleet": "reuben", "gate": "Council Lv6+ ≥3"},
+    {"phase": "R2", "date": "post-R1 + 30-day public comment", "scope": "member SELF-SENDS; status_track + escalation live. No 代行.", "murakumoFleet": "reuben + gad", "gate": "Council Lv6+ ≥4 + 30-day public comment"},
+    {"phase": "R3", "date": "post-R2 + Council Lv7+ unanimity + 司法書士法/行政書士法 clearance", "scope": "kurashimori_send active-outbound 代行 (本人同意ベース) for the member's own matter.", "murakumoFleet": "Full 10-node fleet", "gate": "Council Lv7+ unanimity + 司法書士法/行政書士法 clearance"}
+  ],
+  "references": {
+    "adr": {
+      "master": "/90-docs/adr/2605312500-kurashimori-consumer-protection-concierge-tier-b-actor-r0.md",
+      "toritsugiSibling": "/90-docs/adr/2605312030-toritsugi-government-procedure-concierge-tier-b-actor-r0.md",
+      "moushibumiSibling": "/90-docs/adr/2605312400-moushibumi-democratic-participation-concierge-tier-b-actor-r0.md",
+      "himotokiSibling": "/90-docs/adr/2605302130-himotoki-disclosure-request-tier-b-actor-r0.md",
+      "chigiriEscalation": "/90-docs/adr/2605262700-chigiri-legal-procedure-tier-b-actor-r0.md",
+      "wakaiRelief": "/90-docs/adr/2605263500-wakai-mutual-aid-tier-b-actor-r0.md",
+      "warifuChargeback": "/90-docs/adr/2605302000-warifu-open-zero-fee-card.md",
+      "confidentiality": "/90-docs/adr/2605181100-etzhayyim-confidentiality-encrypted-records.md",
+      "kotoba": "/90-docs/adr/2605262130-kotoba-storage-substrate-unification.md",
+      "missionCharter": "/90-docs/adr/2605192100-etzhayyim-mission-charter.md",
+      "charterRider": "/90-docs/adr/2605192200-etzhayyim-ip-free-release-charter-rider.md",
+      "council": "/90-docs/adr/2605192300-etzhayyim-bootstrap-council-five.md",
+      "murakumoInference": "/90-docs/adr/2605215000-etzhayyim-inference-murakumo-only-no-runpod.md"
+    },
+    "registrySeed": "/20-actors/kurashimori/registry/targets.seed.json"
+  }
+}
