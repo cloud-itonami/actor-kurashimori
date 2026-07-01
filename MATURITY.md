@@ -77,7 +77,7 @@ EU ODR platform 廃止 (2025-03 受付停止 / 2025-07 規則廃止) · EU 2023/
 
 ### iter-r1-core (2026-06-02)
 **上げた項目: #11 — R1 cooloff 純計算コアをゲート閉のまま先行実装。**
-`40-engine/kotoba/crates/kotoba-kotodama/cells/kurashimori_cooloff_check/cooloff.py` を新規作成 — 純
+`kotoba-lang/kotodama-cells/kurashimori_cooloff_check/cooloff.py` を新規作成 — 純
 stdlib・ネットワーク無し・PII 非永続の日付計算コア。管轄別の起算規則を明示
 パラメータ化: `calendar_inclusive` (JP 特商法 起算日=1日目) / `calendar_exclusive`
 (EU CRD・DE Widerruf 翌日起算) / `business_inclusive`・`business_exclusive` (US FTC
