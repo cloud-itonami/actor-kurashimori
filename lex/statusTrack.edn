@@ -1,0 +1,44 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.kurashimori.statusTrack",
+ "description"
+ "Tracks a dispatched consumer remedy's outcome (ADR-2605312500 §3, kurashimori_status_track): merchant response / refund / window-expiry clock; on stall, flags for escalation. CONSTITUTIONAL: track only, no coercion / no harassment follow-up (G10/G11); any member-identifying outcome detail lands ONLY in an com.etzhayyim.encrypted.* DID-bound envelope (G6) — this record holds status metadata + pointers, never inline content.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "key" "tid",
+   "record"
+   {"type" "object",
+    "required" ["memberDid" "dispatchRef" "state" "updatedAt"],
+    "properties"
+    {"memberDid"
+     {"type" "string",
+      "format" "did",
+      "description" "The complainant本人 (G4)"},
+     "dispatchRef"
+     {"type" "string",
+      "description"
+      "AT-URI / rkey of the dispatchRecord being tracked"},
+     "state"
+     {"type" "string",
+      "knownValues"
+      ["sent"
+       "merchant-acknowledged"
+       "refund-offered"
+       "refunded"
+       "rejected"
+       "no-response"
+       "escalate"
+       "resolved"
+       "withdrawn"],
+      "description" "Outcome state"},
+     "dueAt"
+     {"type" "string",
+      "format" "datetime",
+      "description" "Follow-up / window-expiry deadline"},
+     "outcomeRef"
+     {"type" "string",
+      "description"
+      "Pointer to the com.etzhayyim.encrypted.* envelope holding outcome detail (G6); never inline"},
+     "updatedAt" {"type" "string", "format" "datetime"},
+     "stateAlignedFlag"
+     {"type" "boolean", "description" "G13 pass-through"}}}}}}

@@ -1,0 +1,26 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kurashimori.remedyDraft",
+  "description": "A drafted cooling-off 通知 / refund demand / complaint artifact (ADR-2605312500 §3, kurashimori_compose). kurashimori ASSISTS the member in drafting; the member reviews + owns + (default) sends it. CONSTITUTIONAL: drafting-assistance, NOT 作成代理 reserved to 司法書士/弁護士 (G5; only representable assistMode is 'drafting-assist'); the draft must use lawful, non-threatening language (G10); the member always confirms before send (G8); the draft content lives ONLY in an com.etzhayyim.encrypted.* DID-bound envelope (G6) — this record holds the POINTER + metadata, never inline content.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "remedyRef", "sessionRef", "encryptedDraftRef", "assistMode", "memberConfirmed", "createdAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The member who owns the draft (complainant, G3/G4)"},
+          "remedyRef": {"type": "string", "description": "AT-URI / rkey of the remedyTarget"},
+          "sessionRef": {"type": "string", "description": "AT-URI / rkey of the parent complaintSession"},
+          "draftKind": {"type": "string", "knownValues": ["cooling-off-notice", "refund-demand", "complaint"]},
+          "encryptedDraftRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding the draft (G6); never inline content"},
+          "assistMode": {"type": "string", "knownValues": ["drafting-assist"], "description": "Always drafting-assist — never 作成代理 (G5). Schema-level invariant: no other value representable."},
+          "memberConfirmed": {"type": "boolean", "description": "G8 — the member has reviewed + confirmed the draft before it may be sent"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

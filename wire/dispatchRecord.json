@@ -1,0 +1,27 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kurashimori.dispatchRecord",
+  "description": "A record of a cooling-off/complaint dispatch to a merchant (ADR-2605312500 §3, kurashimori_send). Two `mode`s: `member-self-send` (default, R2 — kurashimori assembled + handed back, the member sent) and `agent-on-behalf` (代行, R3 GATED — kurashimori sent the member's OWN notice via a lawful channel). CONSTITUTIONAL: `agent-on-behalf` is permitted ONLY when the remedy is `council-verified` (G14), per-submission consent is recorded, and the R3 gate (司法書士法/行政書士法 clearance + Council Lv7+) is satisfied (G15); only external action is a lawful, non-harassing communication via a legitimate channel with member authorization (G10); member is the named complainant (G4); no platform-held signing key (ADR-2605231525). Holds metadata + pointers, never inline content (G6).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "remedyRef", "mode", "channel", "consentRef", "sentAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The complainant本人 (G4)"},
+          "remedyRef": {"type": "string", "description": "AT-URI / rkey of the remedyTarget"},
+          "draftRef": {"type": "string", "description": "AT-URI / rkey of the remedyDraft sent"},
+          "mode": {"type": "string", "knownValues": ["member-self-send", "agent-on-behalf"], "description": "G15 — member-self-send is the default; agent-on-behalf (代行) is the GATED R3 exception"},
+          "channel": {"type": "string", "knownValues": ["naiyo-shomei", "electronic", "web-portal", "postal", "phone"], "description": "The lawful channel used (G10); naiyo-shomei = 内容証明郵便"},
+          "consentRef": {"type": "string", "description": "Per-dispatch consent artifact (G3; mandatory for agent-on-behalf, G15)"},
+          "councilGateRef": {"type": "string", "description": "For mode=agent-on-behalf: reference to the on-chain Council Lv7+ + 司法書士法/行政書士法 clearance gate (G15). Absent ⇒ agent-on-behalf is invalid."},
+          "receiptRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding the dispatch receipt / 追跡番号 (G6)"},
+          "sentAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.kurashimori.complaintSession",
+ "description"
+ "A member-facing self-help session for a single consumer matter (ADR-2605312500 §3, kurashimori_intake). Holds the walkthrough + checklist pulled from a chigiri template (G5 — diagnosis + drafting-assist, never legal advice/representation). CONSTITUTIONAL: member-initiated + consent + DID/SBT bound, OWN matter only (G3); the member is the named complainant (G4). Holds session metadata + checklist state, not plaintext member PII or contract content (G6).",
+ "defs"
+ {"main"
+  {"type" "record",
+   "key" "tid",
+   "record"
+   {"type" "object",
+    "required" ["memberDid" "remedyRef" "status" "createdAt"],
+    "properties"
+    {"updatedAt" {"type" "string", "format" "datetime"},
+     "remedyRef"
+     {"type" "string",
+      "description" "AT-URI / rkey of the remedyTarget being pursued"},
+     "createdAt" {"type" "string", "format" "datetime"},
+     "templateRef"
+     {"type" "string",
+      "maxLength" 120,
+      "description"
+      "chigiri template id this session renders (G5 boundary)"},
+     "checklist"
+     {"type" "array",
+      "description" "step/必要書類 checklist state",
+      "items" {"type" "ref", "ref" "#checklistEntry"}},
+     "merchantRef"
+     {"type" "string",
+      "maxLength" 300,
+      "description"
+      "Merchant identifier (name/handle); contract PII detail stays encrypted (G6)"},
+     "status"
+     {"type" "string",
+      "knownValues"
+      ["open"
+       "assessing"
+       "drafting"
+       "ready-to-send"
+       "sent"
+       "escalated"
+       "resolved"
+       "closed"
+       "abandoned"]},
+     "memberDid"
+     {"type" "string",
+      "format" "did",
+      "description"
+      "The consenting member's DID (G3); the complainant (G4)"},
+     "consentRef"
+     {"type" "string",
+      "description" "Reference to the member's recorded consent (G3)"},
+     "stateAlignedFlag"
+     {"type" "boolean", "description" "G13 pass-through"}}}},
+  "checklistEntry"
+  {"type" "object",
+   "description" "One step in a complaintSession",
+   "required" ["label" "done"],
+   "properties"
+   {"label" {"type" "string", "maxLength" 300},
+    "done" {"type" "boolean"},
+    "note" {"type" "string", "maxLength" 500}}}}}

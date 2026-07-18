@@ -1,7 +1,8 @@
 # kurashimori remedy-registry — Verification Workflow (G14)
 
 Per ADR-2605312500 §2 + §4 (G14 verified-remedy-only send). Every
-`com.etzhayyim.kurashimori.remedyTarget` entry under `targets.seed.json` ships
+`com.etzhayyim.kurashimori.remedyTarget` entry under canonical
+`targets.seed.edn` ships
 `verificationStatus = unverified-seed`, and **no live action (`kurashimori_send`)
 may run against an `unverified-seed` or stale entry**. This file documents how an
 entry is moved through the three tiers — the human/Council checks that gate
@@ -147,7 +148,7 @@ No entry may gate `kurashimori_send` until it passes the checklist above.
 
 ## Machine-enforced floor
 
-`70-tools/scripts/audit/test_kurashimori_registry_seed.py` pins the fail-closed
+`test/kurashimori/registry_seed_test.clj` pins the fail-closed
 registry invariants: the file parses with a non-empty `targets` list + integer
 `freshnessWindowDays`; every `remedyId` is unique (fail-closed on duplicates);
 **every** entry ships `verificationStatus == "unverified-seed"` (G14 — no seed

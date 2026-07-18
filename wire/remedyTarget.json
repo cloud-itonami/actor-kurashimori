@@ -1,0 +1,33 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kurashimori.remedyTarget",
+  "description": "Coded consumer-remedy TARGET registry entry — one record per remedy kind × jurisdiction, holding the remedy kind / 根拠法令 / statutory window (日数) / 書面 form / delivery channel / escalation forum so a kurashimori cell can diagnose + (eventually) send procedurally (ADR-2605312500 §2). OPEN DATA (derived from the authority's published guidance; provenance mandatory). CONSTITUTIONAL: `verificationStatus` gates live send (G14) — statutory windows (日数) drift and a wrong 日数 is harmful, so seeds enable diagnosis-design only. Never fabricate (G8): `legalBasis` + `provenance` mandatory.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["remedyId", "title", "jurisdiction", "remedyKind", "legalBasis", "provenance", "lastVerified", "verificationStatus"],
+        "properties": {
+          "remedyId": {"type": "string", "maxLength": 120, "description": "Stable slug (e.g. 'jp-houmon-cooloff')"},
+          "title": {"type": "string", "maxLength": 200},
+          "jurisdiction": {"type": "string", "maxLength": 8, "description": "e.g. jpn"},
+          "remedyKind": {"type": "string", "knownValues": ["cooling-off", "return-policy", "refund-demand", "complaint", "escalation-public", "escalation-adr"], "description": "The kind of remedy/route"},
+          "statutoryWindowDays": {"type": "integer", "minimum": 0, "description": "Statutory window in days (cooling-off/return); 0 if N/A. A WRONG value is harmful — G14 verify."},
+          "windowStart": {"type": "string", "maxLength": 300, "description": "起算日 description (when the clock starts)"},
+          "formRef": {"type": "string", "maxLength": 120, "description": "chigiri template id used to compose this remedy"},
+          "deliveryChannel": {"type": "string", "maxLength": 300, "description": "How the notice is sent (内容証明 / 電子 / portal / 電話)"},
+          "escalationForum": {"type": "string", "maxLength": 300, "description": "Where to escalate if self-help stalls"},
+          "legalBasis": {"type": "string", "maxLength": 300, "description": "根拠法令 — MANDATORY (G8), e.g. '特定商取引法 §9'"},
+          "language": {"type": "string", "maxLength": 16},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"},
+          "provenance": {"type": "string", "format": "uri", "description": "Source URL (authority's published guidance) — MANDATORY (G8)"},
+          "lastVerified": {"type": "string", "format": "datetime"},
+          "verificationStatus": {"type": "string", "knownValues": ["unverified-seed", "maintainer-verified", "council-verified"], "description": "G14 send gate. unverified-seed => diagnosis-design only, NO live send."},
+          "notes": {"type": "string", "maxLength": 1500}
+        }
+      }
+    }
+  }
+}

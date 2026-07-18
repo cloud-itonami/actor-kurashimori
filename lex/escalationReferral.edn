@@ -1,0 +1,41 @@
+{"lexicon" 1,
+ "id" "com.etzhayyim.kurashimori.escalationReferral",
+ "description"
+ "A referral routing a stalled self-help matter to a lawful external forum (ADR-2605312500 §3, kurashimori_escalation): 消費生活センター / 消費者ホットライン 188 / ADR (指定紛争解決機関) / chigiri + licensed counsel. CONSTITUTIONAL: kurashimori ROUTES, it does not represent (G5/N1); legal characterization + representation happen at the destination; member PII stays encrypted (G6). The referral is a pointer + rationale, never inline contract/complaint content.",
+ "defs"
+ {"main"
+  {"type" "record",
+   "key" "tid",
+   "record"
+   {"type" "object",
+    "required"
+    ["memberDid" "sessionRef" "forum" "rationale" "createdAt"],
+    "properties"
+    {"memberDid"
+     {"type" "string",
+      "format" "did",
+      "description" "The member being referred (G3)"},
+     "sessionRef"
+     {"type" "string",
+      "description" "AT-URI / rkey of the complaintSession"},
+     "forum"
+     {"type" "string",
+      "knownValues"
+      ["shohi-seikatsu-center"
+       "hotline-188"
+       "adr-organ"
+       "chigiri-counsel"
+       "tekikaku-consumer-org"],
+      "description" "The lawful external forum routed to"},
+     "rationale"
+     {"type" "string",
+      "maxLength" 1000,
+      "description"
+      "Why escalation (self-help stalled / representation needed); NOT a legal determination (G5)"},
+     "targetRef"
+     {"type" "string",
+      "description"
+      "AT-URI / rkey of the escalation remedyTarget (for center/ADR routes)"},
+     "createdAt" {"type" "string", "format" "datetime"},
+     "stateAlignedFlag"
+     {"type" "boolean", "description" "G13 pass-through"}}}}}}

@@ -27,7 +27,7 @@ Each remedy/route is an `com.etzhayyim.kurashimori.remedyTarget` record holding
 the **remedy kind / 根拠法令 / statutory window (日数) / 書面 form / delivery
 channel (内容証明 / 電子 / portal) / escalation forum**.
 
-- Seed: [`registry/targets.seed.json`](registry/targets.seed.json) — 5 entries
+- Canonical seed: [`registry/targets.seed.edn`](registry/targets.seed.edn) — 65 entries
   (訪問販売 クーリングオフ · 通信販売 返品特約 · 連鎖販売 クーリングオフ ·
   消費生活センター/188 · 適格消費者団体/ADR), **all `unverified-seed`**.
 - **Honesty gate (G14):** no live send against an `unverified-seed` / stale
@@ -86,6 +86,6 @@ escalation → R3 gated 代行.
 
 ## References
 
-- ADR: [`/90-docs/adr/2605312500-kurashimori-consumer-protection-concierge-tier-b-actor-r0.md`](/90-docs/adr/2605312500-kurashimori-consumer-protection-concierge-tier-b-actor-r0.md)
-- Lexicons: [`/00-contracts/lexicons/com/etzhayyim/kurashimori/`](/00-contracts/lexicons/com/etzhayyim/kurashimori/)
+- ADR checkout is revision-pinned in `dependencies.edn`.
+- Canonical actor-owned Lexicons: `lex/*.edn`; external JSON: `wire/*.json`.
 - Charter Rider: [`/CHARTER-RIDER.md`](/CHARTER-RIDER.md)

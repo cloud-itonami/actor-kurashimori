@@ -1,0 +1,28 @@
+{
+  "lexicon": 1,
+  "id": "com.etzhayyim.kurashimori.coolingOffAssessment",
+  "description": "An INFORMATIONAL cooling-off window computation for a member's contract (ADR-2605312500 §3, kurashimori_cooloff_check). CONSTITUTIONAL (G5): this is a DATE COMPUTATION against the cited statute (window start + 日数 → deadline), explicitly NOT a legal opinion or rights-determination — `isLegalOpinion` is const false. The member always confirms + a borderline/complex case routes to chigiri + licensed counsel. Contract dates are PII-minimised; full contract detail stays in com.etzhayyim.encrypted.* (G6).",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["memberDid", "remedyRef", "isLegalOpinion", "withinWindow", "createdAt"],
+        "properties": {
+          "memberDid": {"type": "string", "format": "did", "description": "The member whose contract is assessed (G3)"},
+          "remedyRef": {"type": "string", "description": "AT-URI / rkey of the cooling-off remedyTarget (supplies 日数 + 起算)"},
+          "sessionRef": {"type": "string", "description": "AT-URI / rkey of the parent complaintSession"},
+          "isLegalOpinion": {"type": "boolean", "const": false, "description": "G5 — ALWAYS false. This is an informational date computation, never a legal opinion. Schema-level invariant."},
+          "withinWindow": {"type": "boolean", "description": "Whether today is within the computed statutory window (informational)"},
+          "computedDeadline": {"type": "string", "format": "datetime", "description": "Computed window-end (起算日 + 日数); informational"},
+          "computationNote": {"type": "string", "maxLength": 1000, "description": "How the date was computed + caveats (起算日 assumptions, exclusions); routes complex cases to chigiri"},
+          "encryptedContractRef": {"type": "string", "description": "Pointer to the com.etzhayyim.encrypted.* envelope holding contract detail (G6); never inline"},
+          "memberConfirmed": {"type": "boolean", "description": "G8 — the member has confirmed the input facts (contract date/type)"},
+          "createdAt": {"type": "string", "format": "datetime"},
+          "stateAlignedFlag": {"type": "boolean", "description": "G13 pass-through"}
+        }
+      }
+    }
+  }
+}

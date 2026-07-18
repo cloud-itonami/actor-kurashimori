@@ -77,7 +77,8 @@ EU ODR platform 廃止 (2025-03 受付停止 / 2025-07 規則廃止) · EU 2023/
 
 ### iter-r1-core (2026-06-02)
 **上げた項目: #11 — R1 cooloff 純計算コアをゲート閉のまま先行実装。**
-`kotoba-lang/kotodama-cells/kurashimori_cooloff_check/cooloff.py` を新規作成 — 純
+flat west sibling `${KOTOTAMA_REPO:-../../kotoba-lang/kototama}` の
+`crates/kotoba-kotodama/cells/kurashimori_cooloff_check/cooloff.py` を参照 — 純
 stdlib・ネットワーク無し・PII 非永続の日付計算コア。管轄別の起算規則を明示
 パラメータ化: `calendar_inclusive` (JP 特商法 起算日=1日目) / `calendar_exclusive`
 (EU CRD・DE Widerruf 翌日起算) / `business_inclusive`・`business_exclusive` (US FTC
@@ -123,3 +124,10 @@ boundary) は未着手 — toritsugi パターン parity に向けて後続イ�
 既存テスト(registry-seed + cooloff/escalation cell)は被覆していなかった **manifest G1–G15 + 7 lexicon の UPL/消費者保護ゲート**を新設 `methods/test_charter_gates.cljc`(**7 tests green**, standalone・network-free)で固定: (1) manifest が厳密に G1–G15。(2) **UPL** — coolingOffAssessment const `isLegalOpinion=false`(クーリングオフ判定は法的意見でなく見積)。(3) **drafting-assist のみ** — remedyDraft.assistMode が {drafting-assist} のみ(代理作成なし)+ memberConfirmed + encryptedDraftRef(G6)必須。(4) **self-send default** — dispatch が consentRef 必須、mode={member-self-send, agent-on-behalf}(代行は R3 ゲート)。(5) **G14** — remedyTarget が legalBasis + provenance + verificationStatus{unverified-seed, maintainer-verified, council-verified} 必須。(6) **G5 escalation** — forum に shohi-seikatsu-center + chigiri-counsel + hotline-188。(7) **own-matter** — 全稼働 record が memberDid 必須。`run_tests.sh` 新設。working-tree edits only。
 
 > **2026-06-17 substrate-native migration (ADR-2606160842):** the charter-gate test above was ported Python→Clojure (`methods/test_charter_gates.py` → `methods/test_charter_gates.cljc`, ns `kurashimori.methods.test-charter-gates`, reads the lexicons via cheshire/edn) and the Python was pruned. Run via `./run_tests.sh` (now `exec bb`) or `bb run test:charter` (all 34 charter suites; 244 tests / 924 assertions green). Assertions unchanged (1:1 port).
+
+### 2026-07-18 — standalone EDN canonical migration
+
+旧 root の social/mesh 実装、social cell、schema、7 lexicon、65件の remedy
+registry と audit を本 repository に統合した。manifest、lexicon、registry は EDN
+を正規形とし、JSON は `wire/` の外部表現に限定。actor/root ADR 依存は
+`dependencies.edn` に revision 固定し、テスト入口を `run_tests.clj` に統一した。

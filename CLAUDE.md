@@ -20,7 +20,8 @@ member-initiated + consent-bound:
 
 Default = 診断 + 起草補助 + 本人送付; 代行 (本人同意ベース) is the gated R3
 exception. Driven by a coded `remedyTarget` registry (remedy kind / 根拠法令 /
-日数 / 様式 / channel / escalation forum). Seed: `registry/targets.seed.json`.
+日数 / 様式 / channel / escalation forum). Canonical seed:
+`registry/targets.seed.edn` (`wire/targets.seed.json` is external wire data).
 
 ## Do NOT (constitutional invariants — ADR-2605312500 §4)
 

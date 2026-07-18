@@ -1,0 +1,14 @@
+{:dependencies
+ [{:dependency/id etzhayyim/root
+   :dependency/repository "https://github.com/etzhayyim/root"
+   :dependency/revision "3d19f3b5b0cffb12cad12205604b6791c57c454d"
+   :dependency/paths ["90-docs/adr"]}
+  {:dependency/id com.etzhayyim/chigiri :dependency/revision "e08560129675106e0bb4b70e23769ff07a711ce7"}
+  {:dependency/id com.etzhayyim/himotoki :dependency/revision "de4a70dddb9a559c32e93404ac519754771b7756"}
+  {:dependency/id com.etzhayyim/moushibumi :dependency/revision "ef4e9a790b4bd06c5a6e215aa4eab3dd3401d696"}
+  {:dependency/id com.etzhayyim/toritsugi :dependency/revision "8f6dad2d9dd282253ebedb5a0721b6ad5afbb636"}
+  {:dependency/id com.etzhayyim/wakai :dependency/revision "fa69bb164ab24a1fdf34d8a4cd576a9c5d0c359d"}
+  {:dependency/id com.etzhayyim/warifu
+   :dependency/repository "https://github.com/etzhayyim/root"
+   :dependency/revision "3d19f3b5b0cffb12cad12205604b6791c57c454d"
+   :dependency/paths ["20-actors/warifu"]}]}
