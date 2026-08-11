@@ -1,0 +1,5 @@
+{:repo/id "cloud-itonami/actor-kurashimori"
+ :repo/aliases ["etzhayyim/com-etzhayyim-kurashimori"]
+ :repo/role :governed-executable-actor
+ :repo/execution :resident
+ :repo/boundary "Consent-bound consumer self-help only; no legal representation, and Tamaki owns artificial-organism evolution."}
