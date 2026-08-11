@@ -1,5 +1,10 @@
 # 暮らし守 (kurashimori) — Citizen Consumer-Protection Concierge
 
+Canonical repository: `cloud-itonami/actor-kurashimori`. This governed,
+resident consumer-protection actor belongs to the Itonami public-operations
+plane. It assists a member's own matter and does not own Tamaki's
+artificial-organism evolution loop.
+
 **Tier-B actor · DID `did:web:kurashimori.etzhayyim.com` · ADR-2605312500 · R0 scaffold**
 
 kurashimori is the 国民生活センター / 消費生活センター-equivalent self-help

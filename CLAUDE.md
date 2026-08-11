@@ -1,4 +1,7 @@
-# kurashimori (暮らし守) — CLAUDE actor guide
+# cloud-itonami/actor-kurashimori — CLAUDE actor guide
+
+Canonical repository: `https://github.com/cloud-itonami/actor-kurashimori`.
+The former `etzhayyim/com-etzhayyim-kurashimori` path is a compatibility redirect.
 
 **Citizen consumer-protection concierge.** Tier-B ·
 `did:web:kurashimori.etzhayyim.com` · ADR-2605312500 ·

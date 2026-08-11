@@ -1,5 +1,7 @@
 {:identity/id "did:web:kurashimori.etzhayyim.com"
  :identity/actor "kurashimori"
+ :identity/repository "https://github.com/cloud-itonami/actor-kurashimori"
+ :identity/repository-aliases ["https://github.com/etzhayyim/com-etzhayyim-kurashimori"]
  :identity/canonical-document "manifest.edn"
  :identity/external-did-document ".well-known/did.json"
  :identity/canonical-format :edn}
