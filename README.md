@@ -52,6 +52,19 @@ channel (内容証明 / 電子 / portal) / escalation forum**.
 
 All cells raise `RuntimeError("kurashimori R0 scaffold: …")` until Council ratification.
 
+## Migration Boundary
+
+`kotoba-lang/kotodama-cells/kurashimori_*` is legacy source
+during migration. The domain actor implementation belongs here as pure `.cljc`
+plans under `src/kurashimori/murakumo.cljc`: the seven consumer self-help cells
+map to `remedyTarget`, `complaintSession`, `coolingOffAssessment`,
+`remedyDraft`, `dispatchRecord`, `statusTrack`, and `escalationReferral` MST
+records. The boundary is fail-closed: missing consent, own-matter, UPL,
+encrypted-PII, verified-remedy, Murakumo-only, member-self-action, and R3
+代行 attestations produce no write effects. Host placement remains in
+`kotoba-lang/murakumo`; any AT Protocol/PDS surface remains in
+`gftdcojp/app-aozora`.
+
 ## Constitutional gates (G1–G15, immutable)
 
 G3 consent + **own-matter-only** · G4 transparent + non-pretextual (not an
