@@ -3,7 +3,7 @@
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.edn :as edn]
             [clojure.set :as set]
-            [clojure.string :as str]))
+            [kotoba.lang.text :as str]))
 
 (def ^:private actor-dir (-> (java.io.File. ^String *file*)
                              .getParentFile .getParentFile .getParentFile .getParentFile))
