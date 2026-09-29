@@ -14,7 +14,7 @@ framing: できていないことは「未」と明記する (G8 — 誇張よ�
 | # | 項目 | 状態 | 完了イテレーション |
 |---|---|---|---|
 | 1 | ADR-2605312500 (master) | ✅ | init |
-| 2 | manifest.jsonld + README + CLAUDE.md | ✅ | init |
+| 2 | manifest.jsonld + README + AGENTS.md | ✅ | init |
 | 3 | remedyTarget registry seed (JP 5件, unverified-seed) | ✅ | init |
 | 4 | **registry worldwide 横展開 (4 ブロック, 全 unverified-seed)** | ✅ | **iter-worldwide (2026-06-02)** |
 | 5 | cell scaffold (`kotodama.cells.kurashimori_*`, import 時 RuntimeError) | 未 | — |
